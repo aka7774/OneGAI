@@ -1,0 +1,104 @@
+{
+	"aisinger": {
+		"active": 1,
+		"type": "webapi",
+		"port": 7910,
+		"exec": "bash run.sh"
+	},
+	"blip2": {
+		"active": 0,
+		"vram": 11,
+		"type": "gradio",
+		"port": 7908,
+		"exec": "venv/bin/python app.py"
+	},
+	"cheapchat": {
+		"active": 1,
+		"vram": 6,
+		"type": "webapi",
+		"port": 7903,
+		"exec": "bash run.sh {port}"
+	},
+	"langflow": {
+		"active": 0,
+		"type": "gradio",
+		"port": 7906,
+		"exec": "venv/bin/python -m langflow run --port {port}"
+	},
+	"llava": {
+		"active": 0,
+		"vram": 11,
+		"type": "gradio",
+		"port": 7904,
+		"exec": "venv/bin/python app.py"
+	},
+	"moetts": {
+		"active": 0,
+		"vram": 3,
+		"type": "gradio",
+		"port": 7909,
+		"exec": "venv/bin/python app.py"
+	},
+	"rvc": {
+		"active": 1,
+		"type": "gradio",
+		"port": 7865,
+		"exec": "bash run.sh"
+	},
+	"rvctts": {
+		"active": 1,
+		"vram": 3,
+		"type": "gradio",
+		"port": 7901,
+		"exec": "venv/bin/python app.py"
+	},
+	"rwkv5": {
+		"active": 0,
+		"vram": 6,
+		"type": "gradio",
+		"port": 7907,
+		"exec": "venv/bin/python app.py"
+	},
+	"sdwebui": {
+		"active": 1,
+		"vram": 8,
+		"type": "webapi",
+		"port": 7902,
+		"dir": "elyza",
+		"cd": "run",
+		"exec": "bash webui.sh"
+	},
+	"uvr5": {
+		"active": 0,
+		"vram": 6,
+		"type": "server",
+		"port": 7907,
+		"exec": "venv/bin/python app.py"
+	},
+	"vcclient": {
+		"active": 0,
+		"vram": 2,
+		"type": "server",
+		"port": 58084,
+		"exec": "bash ../../run/run_vcclient.sh"
+	},
+	"voicevox": {
+		"active": 1,
+		"vram": 2,
+		"type": "webapi",
+		"port": 50021,
+		"exec": "venv/bin/python run.py --voicevox_dir='linux-nvidia'"
+	},
+	"whisper": {
+		"active": 0,
+		"vram": 11,
+		"type": "gradio",
+		"port": 7907,
+		"exec": "venv/bin/python app.py"
+	},
+	"ytdlp": {
+		"active": 1,
+		"type": "command"
+	},
+    "_": ""
+}

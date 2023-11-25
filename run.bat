@@ -1,0 +1,1 @@
+python310\python.exe -m uvicorn main:app --port 58083
