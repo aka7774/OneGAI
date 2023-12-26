@@ -5,6 +5,12 @@
 		"port": 7910,
 		"exec": "bash run.sh"
 	},
+	"bertvits2": {
+		"active": 0,
+		"type": "gradio",
+		"port": 7911,
+		"exec": "venv/bin/python app.py"
+	},
 	"blip2": {
 		"active": 0,
 		"vram": 11,
@@ -24,6 +30,19 @@
 		"type": "gradio",
 		"port": 7906,
 		"exec": "venv/bin/python -m langflow run --port {port}"
+	},
+	"llamacpp": {
+		"active": 0,
+		"vram": 8,
+		"type": "command",
+		"exec": "venv/bin/python -m llama_cpp.server --model {model} --n_gpu_layers 41"
+	},
+	"llamasrv": {
+		"active": 1,
+		"vram": 8,
+		"type": "webapi",
+		"port": 7912,
+		"exec": "./main -m '{model}' -n {max_token} -p '{prompt}'"
 	},
 	"llava": {
 		"active": 0,
@@ -81,6 +100,13 @@
 		"type": "server",
 		"port": 58084,
 		"exec": "bash ../../run/run_vcclient.sh"
+	},
+	"vitstts": {
+		"active": 1,
+		"vram": 8,
+		"type": "webapi",
+		"port": 23456,
+		"exec": "venv/bin/python app.py"
 	},
 	"voicevox": {
 		"active": 1,
