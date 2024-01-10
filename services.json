@@ -24,6 +24,12 @@
 		"port": 7908,
 		"exec": "venv/bin/python app.py"
 	},
+	"comfyui": {
+		"active": 0,
+		"type": "webapi",
+		"port": 8188,
+		"exec": "venv/bin/python main.py"
+	},
 	"langflow": {
 		"active": 0,
 		"type": "gradio",

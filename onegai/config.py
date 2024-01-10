@@ -63,6 +63,14 @@ cfg_default = {
                 "f0_key_up": 0
             }
         },
+        "vitstts": {
+            "cache_dir": "/mnt/c/CurrenTTC/logs/vitstts",
+            "ttsdic_tsv_path": "/mnt/c/CurrenTTC/text/ttsdic.tsv",
+            "args": {}
+        },
+        "llamasrv": {
+            "args": {}
+        },
         "perf": {
         },
         "sdimage": {
