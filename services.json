@@ -5,6 +5,12 @@
 		"port": 7910,
 		"exec": "bash run.sh"
 	},
+	"akachat": {
+		"active": 1,
+		"type": "webapi",
+		"port": 50000,
+		"exec": "bash run.sh {port}"
+	},
 	"bertvits2": {
 		"active": 0,
 		"type": "gradio",
@@ -17,13 +23,6 @@
 		"type": "gradio",
 		"port": 7908,
 		"exec": "venv/bin/python app.py"
-	},
-	"cheapchat": {
-		"active": 1,
-		"vram": 6,
-		"type": "webapi",
-		"port": 7903,
-		"exec": "bash run.sh {port}"
 	},
 	"langflow": {
 		"active": 0,
