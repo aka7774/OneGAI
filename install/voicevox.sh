@@ -12,9 +12,9 @@ curl -kL https://bootstrap.pypa.io/get-pip.py | venv/bin/python
 
 venv/bin/python -m pip install -r requirements.txt
 
-wget https://github.com/VOICEVOX/voicevox_engine/releases/download/0.14.6/voicevox_engine-linux-nvidia-0.14.6.7z.001
-7z x voicevox_engine-linux-nvidia-0.14.6.7z.001
-rm voicevox_engine-linux-nvidia-0.14.6.7z.001
+wget https://github.com/VOICEVOX/voicevox_engine/releases/download/0.16.0/voicevox_engine-linux-nvidia-0.16.0.7z.001
+7z x voicevox_engine-linux-nvidia-0.16.0.7z.001
+rm voicevox_engine-linux-nvidia-0.16.0.7z.001
 
 # voicevox_core
 #wget https://github.com/VOICEVOX/voicevox_core/releases/latest/download/download.sh
