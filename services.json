@@ -8,7 +8,7 @@
 	"akachat": {
 		"active": 1,
 		"type": "webapi",
-		"port": 50000,
+		"port": 58090,
 		"exec": "bash run.sh {port}"
 	},
 	"bertvits2": {
@@ -108,10 +108,9 @@
 	},
 	"vitstts": {
 		"active": 1,
-		"vram": 8,
 		"type": "webapi",
-		"port": 23456,
-		"exec": "venv/bin/python app.py"
+		"port": 5000,
+		"exec": "venv/bin/python server_fastapi.py"
 	},
 	"voicevox": {
 		"active": 1,
