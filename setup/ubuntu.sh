@@ -15,3 +15,10 @@ sudo apt install -y cmake gcc g++
 sudo apt install -y ninja-build
 sudo apt install -y unzip p7zip-full
 sudo apt install -y libportaudio2 libasound-dev
+sudo apt install -y libcublas11
+
+if grep -q ~/.bashrc <<< "/usr/local/cuda/lib64"; then
+  echo 'export PATH=/usr/local/cuda:/usr/local/cuda/bin:$PATH' >> ~/.bashrc
+  echo 'export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
+  source ~/.bashrc
+fi
