@@ -8,14 +8,8 @@
 	"akachat": {
 		"active": 1,
 		"type": "webapi",
-		"port": 58090,
+		"port": 7913,
 		"exec": "bash run.sh {port}"
-	},
-	"bertvits2": {
-		"active": 0,
-		"type": "gradio",
-		"port": 7911,
-		"exec": "venv/bin/python app.py"
 	},
 	"blip2": {
 		"active": 0,
@@ -48,6 +42,12 @@
 		"type": "webapi",
 		"port": 7912,
 		"exec": "./main -m '{model}' -n {max_token} -p '{prompt}'"
+	},
+	"lcps": {
+		"active": 0,
+		"type": "command",
+		"port": 7912,
+		"exec": "venv/bin/python -m llama_cpp.server --port {port} --model {model} --n_gpu_layers 82"
 	},
 	"llava": {
 		"active": 0,
@@ -83,6 +83,12 @@
 		"port": 7907,
 		"exec": "venv/bin/python app.py"
 	},
+	"sbv2": {
+		"active": 0,
+		"type": "webapi",
+		"port": 5000,
+		"exec": "venv/bin/python server_fastapi.py"
+	},
 	"sdwebui": {
 		"active": 1,
 		"vram": 8,
@@ -106,12 +112,6 @@
 		"port": 58084,
 		"exec": "bash ../../run/run_vcclient.sh"
 	},
-	"vitstts": {
-		"active": 1,
-		"type": "webapi",
-		"port": 5000,
-		"exec": "venv/bin/python server_fastapi.py"
-	},
 	"voicevox": {
 		"active": 1,
 		"vram": 2,
@@ -119,16 +119,71 @@
 		"port": 50021,
 		"exec": "venv/bin/python run.py --voicevox_dir='linux-nvidia'"
 	},
+	"llm": {
+		"active": 1,
+		"type": "webapi",
+		"port": 7921,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"faiss": {
+		"active": 1,
+		"type": "webapi",
+		"port": 7922,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
 	"whisper": {
-		"active": 0,
-		"vram": 11,
-		"type": "gradio",
-		"port": 7907,
-		"exec": "venv/bin/python app.py"
+		"active": 1,
+		"type": "webapi",
+		"port": 7923,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"reazonspeech": {
+		"active": 1,
+		"type": "webapi",
+		"port": 7924,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"stablediffusion": {
+		"active": 1,
+		"type": "webapi",
+		"port": 7925,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"katanuki": {
+		"active": 1,
+		"type": "webapi",
+		"port": 7926,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"ddg_bs4": {
+		"active": 1,
+		"type": "webapi",
+		"port": 7927,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"pke_ja": {
+		"active": 1,
+		"type": "webapi",
+		"port": 7928,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"pke_en": {
+		"active": 1,
+		"type": "webapi",
+		"port": 7929,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"audiosep": {
+		"active": 1,
+		"type": "webapi",
+		"port": 7930,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
 	},
 	"ytdlp": {
 		"active": 1,
-		"type": "command"
+		"type": "webapi",
+		"port": 7931,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
 	},
     "_": ""
 }

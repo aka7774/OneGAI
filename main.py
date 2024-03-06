@@ -14,6 +14,8 @@ import onegai.apiloader
 from onegai.config import cfg
 from onegai.services import svc
 
+import gradio as gr
+from app import demo
 
 def cleanup():
     for app in svc.keys():
@@ -29,6 +31,8 @@ if cfg['disable_docs']:
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 else:
     app = FastAPI()
+
+gr.mount_gradio_app(app, demo, path="/gradio")
 
 app.add_middleware(
     CORSMiddleware,

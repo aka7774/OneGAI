@@ -41,8 +41,15 @@ def start(app, restart = 0):
     proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     #pid = proc.pid
 
+    timeout = 30
+    i = 0
     while not get_pconn(port):
         time.sleep(1)
+        if proc.poll():
+            return proc.communicate(),
+        i += 1
+        if i >= timeout:
+            return 'timed out.'
 
     return ''
 
@@ -59,6 +66,12 @@ def stop(app):
     gc.collect()
 
     return True
+
+def get_status(app):
+    if not app in svc:
+        return app
+    pid = get_pconn(svc[app]['port'])
+    return f"{app}:{svc[app]['port']} pid={pid}"
 
 def get_vram():
     cmd = 'nvidia-smi --query-gpu=memory.used,memory.total --format=csv,noheader,nounits'
