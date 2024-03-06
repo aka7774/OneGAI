@@ -70,6 +70,8 @@ def stop(app):
 def get_status(app):
     if not app in svc:
         return app
+    if not 'port' in svc[app]:
+        return app
     pid = get_pconn(svc[app]['port'])
     return f"{app}:{svc[app]['port']} pid={pid}"
 
