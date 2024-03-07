@@ -39,9 +39,13 @@ def install_akaspace(app_name):
 def gr_tab(gr):
     with gr.Tab('install'):
         info = gr.Markdown()
-        installable = gr.Dropdown(choices=get_installable(), label='installable')
+        with gr.Row():
+            installable = gr.Dropdown(choices=get_installable(), label='installable')
+            create_refresh_button(gr, installable, lambda: None, lambda: {'choices': get_installable()}, 'refresh-button', interactive=True)
         install_button = gr.Button(value='install')
-        installable_akaspace = gr.Dropdown(choices=get_installable_akaspace(), label='installable akaspace')
+        with gr.Row():
+            installable_akaspace = gr.Dropdown(choices=get_installable_akaspace(), label='installable akaspace')
+            create_refresh_button(gr, installable_akaspace, lambda: None, lambda: {'choices': get_installable_akaspace()}, 'refresh-button', interactive=True)
         install_akaspace_button = gr.Button(value='install')
 
     install_button.click(

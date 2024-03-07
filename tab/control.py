@@ -28,7 +28,10 @@ def gr_tab(gr):
     with gr.Tab('control'):
         info = gr.Textbox(label='', interactive=False)
         status = gr.Textbox(value=get_status(), label='server status', interactive=False)
-        installed = gr.Dropdown(choices=get_installed(), label='installed')
+        create_refresh_button(gr, status, lambda: None, lambda: {'value': get_status()}, 'refresh-button', interactive=True)
+        with gr.Row():
+            installed = gr.Dropdown(choices=get_installed(), label='installed')
+            create_refresh_button(gr, installed, lambda: None, lambda: {'choices': get_installed()}, 'refresh-button', interactive=True)
         with gr.Row():
             start_button = gr.Button(value='start')
             stop_button = gr.Button(value='stop')

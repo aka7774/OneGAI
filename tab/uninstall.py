@@ -12,7 +12,9 @@ def uninstall(app_name):
 def gr_tab(gr):
     with gr.Tab('uninstall'):
         info = gr.Markdown()
-        installed = gr.Dropdown(choices=get_installed(), label='installed')
+        with gr.Row():
+            installed = gr.Dropdown(choices=get_installed(), label='installed')
+            create_refresh_button(gr, installed, lambda: None, lambda: {'choices': get_installed()}, 'refresh-button', interactive=True)
         uninstall_button = gr.Button(value='REMOVE DIRECTORY')
 
     uninstall_button.click(

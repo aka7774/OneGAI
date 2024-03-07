@@ -38,7 +38,7 @@ def start(app, restart = 0):
         export = f"export GRADIO_SERVER_PORT={port}; "
     cmd = f"cd apps/{app}; {export}{exec}"
     print(cmd)
-    proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    proc = subprocess.Popen(cmd, shell=True, text=True)
     #pid = proc.pid
 
     timeout = 30
