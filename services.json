@@ -94,9 +94,14 @@
 		"vram": 8,
 		"type": "webapi",
 		"port": 7902,
-		"dir": "elyza",
-		"cd": "run",
-		"exec": "bash webui.sh"
+		"exec": "bash webui.sh --port {port}"
+	},
+	"sdforge": {
+		"active": 1,
+		"vram": 8,
+		"type": "webapi",
+		"port": 7914,
+		"exec": "bash webui.sh --port {port}"
 	},
 	"uvr5": {
 		"active": 0,
