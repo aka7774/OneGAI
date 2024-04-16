@@ -12,6 +12,15 @@ if os.path.exists(services_json_path):
     with open(services_json_path, 'r') as f:
         svc = json.load(f)
 
+def get_cmd(app, svca):
+    port = svca['port']
+    exec = svca['exec'].format(port=port)
+    export = ''
+    if svca['type'] == 'gradio':
+        export = f"export GRADIO_SERVER_PORT={port}; "
+    cmd = f"cd apps/{app}; {export}{exec}"
+    return cmd
+
 def start(app, restart = 0):
     if 'vram' in svc[app] and svc[app]['vram']:
         (available, total) = get_vram()
@@ -31,12 +40,7 @@ def start(app, restart = 0):
     if restart:
         stop(app)
 
-    port = svc[app]['port']
-    exec = svc[app]['exec'].format(port=port)
-    export = ''
-    if svc[app]['type'] == 'gradio':
-        export = f"export GRADIO_SERVER_PORT={port}; "
-    cmd = f"cd apps/{app}; {export}{exec}"
+    cmd = get_cmd(app, svc[app])
     print(cmd)
     proc = subprocess.Popen(cmd, shell=True, text=True)
     #pid = proc.pid
@@ -54,6 +58,20 @@ def start(app, restart = 0):
     return ''
 
 def stop(app):
+    pid = get_pconn(svc[app]['port'])
+
+    if not pid:
+        return False
+
+    proc = psutil.Process(pid)
+    for cpid in [c.pid for c in proc.children(recursive=True)]:
+        psutil.Process(cpid).terminate()
+    proc.terminate()
+    gc.collect()
+
+    return True
+
+def kill(app):
     pid = get_pconn(svc[app]['port'])
 
     if not pid:
