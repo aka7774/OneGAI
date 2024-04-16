@@ -5,4 +5,5 @@ if [ ! -e venv ]; then
   bash setup/onegai.sh
 fi
 
-venv/bin/python -m gunicorn -w 4 -t 0 -b 0.0.0.0:$1 -k uvicorn.workers.UvicornWorker main:app
+echo `venv/bin/python get_cmd.py $1` > _.sh
+bash _.sh

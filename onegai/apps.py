@@ -144,8 +144,6 @@ def get_status_list():
     return rs
 
 def get_status(app_name):
-    # app_name, configured, bootable, running
-
     try:
         port = cfg['apps'][app_name]['port']
         pid = get_pconn(port)
