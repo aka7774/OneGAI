@@ -1,4 +1,8 @@
 {
+	"onegai": {
+		"port": 58080,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
 	"akachat": {
 		"port": 58070,
 		"exec": "bash run.sh {port}"

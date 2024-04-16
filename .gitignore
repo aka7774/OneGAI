@@ -1,9 +1,7 @@
-dl/
-python310/
-apps/
-venv/
-loapi/
+/apps/
 config.json
+apps.json
+_.sh
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
