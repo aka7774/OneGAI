@@ -3,6 +3,10 @@
 		"port": 58070,
 		"exec": "bash run.sh {port}"
 	},
+	"comfyui": {
+		"port": 8188,
+		"exec": "venv/bin/python main.py"
+	},
 	"rvc": {
 		"port": 7865,
 		"exec": "bash run.sh"

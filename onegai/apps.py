@@ -14,6 +14,28 @@ def get_apps_dir():
 def get_onegai_dir():
     return os.path.abspath('.')
 
+def get_installed():
+    return os.listdir(get_apps_dir())
+
+def get_installable():
+    installable = []
+    for sh in os.listdir('install'):
+        if sh == 'old':
+            continue
+        if sh == 'akaspace.sh':
+            continue
+
+        installable.append(os.path.splitext(sh)[0])
+        
+    return installable
+
+def get_installable_akaspace():
+    akaspaces = []
+    for app_name in cfg['apps'].keys():
+        if 'is_akaspace' in cfg['apps'][app_name] and cfg['apps'][app_name]['is_akaspace']:
+            akaspaces.append(app_name)
+    return akaspaces
+
 def install(app_name):
     sh = f'{get_onegai_dir()}/install/{app_name}.sh'
 
@@ -115,13 +137,30 @@ def stop(app_name, kill = False):
 
     return True
 
+def get_status_list():
+    rs = []
+    for app_name in get_installed():
+        rs.append(get_status(app_name))
+    return rs
+
 def get_status(app_name):
-    if app_name not in cfg['apps']:
-        return ""
-    if not 'port' in cfg['apps'][app_name]:
-        return app_name
-    pid = get_pconn(cfg['apps'][app_name]['port'])
-    return f"{app_name}:{cfg['apps'][app_name]['port']} pid={pid}"
+    # app_name, configured, bootable, running
+
+    try:
+        port = cfg['apps'][app_name]['port']
+        pid = get_pconn(port)
+    except:
+        port = ''
+        pid = ''
+
+    status = [
+        app_name,
+        bool(app_name in cfg['apps'].keys()),
+        port,
+        pid,
+        ]
+
+    return status
 
 def get_vram():
     cmd = 'nvidia-smi --query-gpu=memory.used,memory.total --format=csv,noheader,nounits'
@@ -148,3 +187,8 @@ def get_pconn(port):
             break
 
     return pid
+
+def get_lsof_i():
+    cmd = 'lsof -iTCP | grep LISTEN'
+    result = subprocess.run(cmd, shell=True, text=True, stdout=subprocess.PIPE)
+    return result.stdout
