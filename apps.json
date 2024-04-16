@@ -1,0 +1,87 @@
+{
+	"akachat": {
+		"port": 58070,
+		"exec": "bash run.sh {port}"
+	},
+	"rvc": {
+		"port": 7865,
+		"exec": "bash run.sh"
+	},
+	"sbv2": {
+		"port": 5000,
+		"exec": "venv/bin/python server_fastapi.py"
+	},
+	"sdforge": {
+		"port": 7880,
+		"exec": "bash webui.sh --port {port}"
+	},
+	"vcclient": {
+		"port": 18888,
+		"exec": "cd server; ../venv/bin/python MMVCServerSIO.py -p {port} --https true --content_vec_500 pretrain/checkpoint_best_legacy_500.pt --content_vec_500_onnx pretrain/content_vec_500.onnx --content_vec_500_onnx_on true --hubert_base pretrain/hubert_base.pt --hubert_base_jp pretrain/rinna_hubert_base_jp.pt --hubert_soft pretrain/hubert/hubert-soft-0d54a1f4.pt --nsf_hifigan pretrain/nsf_hifigan/model --crepe_onnx_full pretrain/crepe_onnx_full.onnx --crepe_onnx_tiny pretrain/crepe_onnx_tiny.onnx --rmvpe pretrain/rmvpe.pt --model_dir model_dir --samples samples.json"
+	},
+	"voicevox": {
+		"port": 50021,
+		"exec": "venv/bin/python run.py --voicevox_dir='linux-nvidia'"
+	},
+	"llm": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"faiss": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"whisper": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"reazonspeech": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"stablediffusion": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"katanuki": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"ddg_bs4": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"pke_ja": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"pke_en": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"audiosep": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"ytdlp": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"perf": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"kotobawhisper": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"lcps": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+	"safetychecker": {
+		"is_akaspace": true,
+		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+	},
+    "_": ""
+}

@@ -2,12 +2,12 @@ import os
 import subprocess
 from tab.refresh import create_refresh_button
 
-import onegai.services
+import onegai.apps
 
 def get_status():
     st = []
     for app_name in os.listdir('apps'):
-        st.append(onegai.services.get_status(app_name))
+        st.append(onegai.apps.get_status(app_name))
     return "\n".join(st)
 
 def get_lsof_i():
@@ -19,15 +19,15 @@ def get_installed():
     return os.listdir('apps')
 
 def start(app_name):
-    result = onegai.services.start(app_name, False)
+    result = onegai.apps.start(app_name, False)
     return result, get_status(), get_lsof_i()
 
 def stop(app_name):
-    result = onegai.services.stop(app_name)
+    result = onegai.apps.stop(app_name)
     return result, get_status(), get_lsof_i()
 
 def restart(app_name):
-    result = onegai.services.start(app_name, True)
+    result = onegai.apps.start(app_name, True)
     return result, get_status(), get_lsof_i()
 
 def gr_tab(gr):

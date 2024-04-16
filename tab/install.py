@@ -1,6 +1,7 @@
 import os
 from tab.refresh import create_refresh_button
 
+from onegai.config import cfg
 import onegai.apps
 
 def get_installable():
@@ -16,19 +17,11 @@ def get_installable():
     return installable
 
 def get_installable_akaspace():
-    return [
-    'llm',
-    'faiss',
-    'whisper',
-    'reazonspeech',
-    'stablediffusion',
-    'katanuki',
-    'ddg_bs4',
-    'pke_ja',
-    'pke_en',
-    'audiosep',
-    'ytdlp',
-    ]
+    akaspaces = []
+    for app_name in cfg['apps'].keys():
+        if 'is_akaspace' in cfg['apps'][app_name] and cfg['apps'][app_name]['is_akaspace']:
+            akaspaces.append(app_name)
+    return akaspaces
 
 def install(app_name):
     onegai.apps.install(app_name)
