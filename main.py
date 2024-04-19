@@ -51,7 +51,5 @@ async def handler(request:Request, exc:RequestValidationError):
 signal.signal(signal.SIGTERM, sig_handler)
 signal.signal(signal.SIGTERM, signal.SIG_IGN)
 signal.signal(signal.SIGINT, signal.SIG_IGN)
-if cfg['stop_children']:
-    cleanup()
 signal.signal(signal.SIGTERM, signal.SIG_DFL)
 signal.signal(signal.SIGINT, signal.SIG_DFL)
