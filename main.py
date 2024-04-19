@@ -24,10 +24,7 @@ def sig_handler(signum, frame) -> None:
     sys.exit(1)
 
 
-if cfg['disable_docs']:
-    app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
-else:
-    app = FastAPI()
+app = FastAPI()
 
 import onegai.api
 
