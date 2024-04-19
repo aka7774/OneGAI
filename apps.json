@@ -1,5 +1,5 @@
 {
-	"onegai": {
+	"OneGAI": {
 		"port": 58080,
 		"exec": "venv/bin/python -m uvicorn main:app --port {port}"
 	},
