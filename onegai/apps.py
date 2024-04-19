@@ -75,7 +75,7 @@ def uninstall(app_name):
 def get_cmd(app_name):
     port = cfg['apps'][app_name]['port']
     exec = cfg['apps'][app_name]['exec'].format(port=port)
-    cmd = f'cd "{get_apps_dir()}/app_name"; {exec}'
+    cmd = f'cd "{get_apps_dir()}/{app_name}"; {exec}'
     return cmd
 
 def start(app_name, restart = 0):
