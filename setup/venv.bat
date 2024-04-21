@@ -14,4 +14,4 @@ set PATH=%PATH%;%INSTALL_DIR%python310\Scripts
 bitsadmin /transfer pip https://bootstrap.pypa.io/get-pip.py %INSTALL_DIR%dl\get-pip.py
 %PYTHON% %INSTALL_DIR%dl\get-pip.py
 
-%PYTHON% -m pip install gradio_client gunicorn uvicorn fastapi soundfile psutil pytest pytest-check
+%PYTHON% -m pip install -r requirements.txt
