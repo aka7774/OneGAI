@@ -10,6 +10,10 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
 from onegai.config import cfg
+import onegai.nginx
+
+onegai.nginx.clean()
+onegai.nginx.output()
 
 import gradio as gr
 from app import demo

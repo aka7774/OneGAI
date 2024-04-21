@@ -43,7 +43,7 @@ if os.path.exists(config_path):
 
 cfg_default = {
     "domain": "",
-    "nginx_conf_dir": "/etc/nginx/conf.d",
+    "nginx_conf_dir": "nginx_conf",
     "assign_port": 58081,
     "apps_dir": "..",
     "apps": {

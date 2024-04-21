@@ -1,4 +1,5 @@
 /apps/
+/nginx_conf/
 config.json
 apps.json
 _.sh

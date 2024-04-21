@@ -4,14 +4,13 @@ import json
 from onegai.config import cfg
 
 def clean():
+    os.makedirs(cfg['nginx_conf_dir'], exist_ok=True)
     for filename in os.listdir(cfg['nginx_conf_dir']):
         if not filename.startswith('onegai_'):
             continue
         os.remove(f"{cfg['nginx_conf_dir']}/{filename}")
 
 def output():
-    clean()
-
     with open('nginx.conf', 'r', encoding='utf-8') as f:
         nginx = f.read()
 
