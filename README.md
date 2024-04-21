@@ -9,6 +9,11 @@ All in One Generative AI WebAPI Server だったもの
 - webuiでinstall/uninstall/start/stopを操作できます。
 - セキュリティ機能はありませんが、nginxにhttpsでBASIC認証させられます。
 
+# SETUP
+
+- よく使うOSやミドルウェアの設定が setup/*.sh に収録されています。
+- setup/README.md に簡単な説明があります。
+
 # INSTALL
 
 ```bash
@@ -61,7 +66,7 @@ git clone ...
 
 ### config.json
 
-- 初回起動後に自動生成されます。
+- OneGAI の起動後に自動生成されます。
 - 起動方法を定義します。
   - port は起動するポート
   - exec は起動用のコマンド 変数 {port} が使えます
@@ -70,14 +75,14 @@ git clone ...
     "apps": {
         "{app}": {
             "port": 58081,
-			"exec": "venv/bin/python -m uvicorn main:app --port {port}"
+            "exec": "venv/bin/python -m uvicorn main:app --port {port}"
         },
 ```
 
 ### apps.json
 
 - よく使うAIサーバと akaspace のサーバの exec と port が定義されています。
-  - config.json に記載する手間を省けます。
+  - これにより config.json に記載する手間を省けます。
 
 # SPEC
 
